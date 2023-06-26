@@ -96,7 +96,7 @@ export const LoginForm = ({ onSubmit }) => {
         onClick={() => {
           setTimeout(() => {
           
-         if(email.match(".+@globex\.com"))
+     if(/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/.test(email))
         
             navigate( "/search");
           }, 1500);
