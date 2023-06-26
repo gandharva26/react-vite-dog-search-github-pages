@@ -11,5 +11,3 @@
 ### cd into the repository
 ### npm run install
 ### npm run dev
-### enter email or username (email is validated : use abc@gmail.com)
-### Fill in the columns to Search your Dogs
