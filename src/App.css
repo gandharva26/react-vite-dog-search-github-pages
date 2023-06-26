@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+.tagInput {
+  position: relative;
+  border-style: none;
+  border: none;
+  display: block;
+  flex: 1 1 auto;
+  margin: 5px;
+  min-height: 100%;
+  font-size: 12pt;
+}
+
+.row {
+  display: inline;
+}
+.tagInputWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.tagInputWrapper :focus {
+  outline: blue;
+}
+
+.tagsList {
+  display: inline;
+  padding: 0px;
+  margin: 0px;
+  margin-right: 5px;
+}
+
+button {
+  display: block;
+}
+.col {
+  display: flex;
+}
+.c-multi-select-dropdown {
+  margin: 100px auto;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  width: 300px;
+
+  &:hover {
+    .c-multi-select-dropdown__options {
+      display: block;
+    }
+  }
+
+  .c-multi-select-dropdown__selected {
+    border: solid 1px #eee;
+    font-size: 14px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > img {
+      height: 18px;
+    }
+  }
+
+  .c-multi-select-dropdown__options {
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    width: 100%;
+    list-style: none;
+    padding-left: 0px;
+    border: solid 1px #eee;
+    padding: 5px 0px;
+  }
+
+  .c-multi-select-dropdown__option {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: normal;
+  background: var(--surface-ground);
+  color: var(--text-color);
+  padding: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+}
+
+th,
+td {
+  max-width: 10vh;
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+th span {
+  margin-right: 0.5rem;
+}
+
+.pagination {
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 0.5rem;
+}
