@@ -39,8 +39,8 @@ export const LoginForm = ({ onSubmit }) => {
   useEffect(() => {
     if (submit === true) {
       const json = JSON.stringify({
-        name: "abc",
-        email: "def@gmail.com",
+        name: username,
+        email: email
       });
       const res = axios
         .post("https://frontend-take-home-service.fetch.com/auth/login", json, {
@@ -85,7 +85,8 @@ export const LoginForm = ({ onSubmit }) => {
         }}
       >
         <label htmlFor="email-input">Email</label>
-        <input id="email-input" onChange={handleChangeemail} value={email} />
+
+        <input   pattern=".+@globex\.com" type="email"   required id="email-input" onChange={handleChangeemail} value={email} />
       </div>
 
       <button
@@ -95,8 +96,10 @@ export const LoginForm = ({ onSubmit }) => {
         onClick={() => {
           setTimeout(() => {
           
+         if(email.match(".+@globex\.com"))
+        
             navigate( "/search");
-          }, 2500);
+          }, 1500);
         }}
         id="login-button"
         type="submit"

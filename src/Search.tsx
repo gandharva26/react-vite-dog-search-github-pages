@@ -494,6 +494,7 @@ export const Search = () => {
           isMulti
           options={data}
         />
+        <br></br>
         Select Zip Code
         <MultiSelect
           options={zipCodeOptions}
@@ -502,30 +503,35 @@ export const Search = () => {
           labelledBy={"Select"}
           isCreatable={true}
         />
+        <br></br>
         Age Min
         <input
           type="text"
           name="Age Min"
           onChange={(e) => setAgeMin(e.target.value)}
         />
+        <br></br>
         Age Max
         <input
           type="text"
           name="Age Max"
           onChange={(e) => setAgeMax(e.target.value)}
         />
+        <br></br>
         Page Size
         <input
           type="text"
           name="Size"
           onChange={(e) => setDogPageSize(e.target.value)}
         />
+        <br></br>
         From Page
         <input
           type="text"
           name="From"
           onChange={(e) => setDogFromPage(e.target.value)}
         />
+        <br></br>
         State
         <Select isMulti onChange={setStateName} options={states} />
         {/* Sort
@@ -534,6 +540,7 @@ export const Search = () => {
       onChange={setSortPage}  
       options ={sortOptions}
     /> */}
+    <br></br>
         <label htmlFor="city_id" className="control-label">
           City
         </label>
