@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axiosRetry from "axios-retry"
 
 
 export const LoginForm = ({ onSubmit }:any) => {
@@ -36,14 +36,28 @@ export const LoginForm = ({ onSubmit }:any) => {
     }
   }, [username, email]);
 
+
   useEffect(() => {
     if (submit === true) {
       const json = JSON.stringify({
         name: username,
         email: email,
       });
+
+      axiosRetry(axios, {
+        retries: 3, // number of retries
+        retryDelay: (retryCount) => {
+            console.log(`retry attempt: ${retryCount}`);
+            return retryCount * 2000; // time interval between retries
+        },
+        retryCondition: (error) => {
+            // if retry condition is not specified, by default idempotent requests are retried
+            return error.response.status === 503;
+        },
+    });
+
       const res = axios
-        .post("https://frontend-take-home-service.fetch.com/auth/login", json, {
+        .post("https://frontend-take-home-service.fetch.com/auth/login",  json, {
           headers: {
             // Overwrite Axios's automatically set Content-Type
             "Content-Type": "application/json",

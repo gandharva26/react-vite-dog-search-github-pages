@@ -1,5 +1,5 @@
 // import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom'
 import './App.css'
 import LoginForm from './LoginForm';
 import { Search } from "./Search";

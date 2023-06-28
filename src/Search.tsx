@@ -137,10 +137,10 @@ export const Search = () => {
 
 
   const [rows, setRows]  =  useState<(Dog & Location)[]>([]);
-
-  const [locations, setLocations] = useState([]);
+  const [locations, setLocations] = useState<Location[]>([]);
+  
+  
   const [zipCodes, setZipCodes] = useState([]);
-
   const [logout, setLogout] = useState(false);
   const [selectedElements, setSelectedElements] = useState([]);
 
