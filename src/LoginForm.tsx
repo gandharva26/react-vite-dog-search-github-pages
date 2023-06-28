@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import setCookie from "set-cookie-parser";
+import { ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 
-export const LoginForm = ({ onSubmit }) => {
+export const LoginForm = ({ onSubmit }:any) => {
   const [username, setUsername] = useState("");
   const [email, setemail] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
   const [submit, setSubmit] = useState(false);
   const navigate = useNavigate();
-  function handleSubmit(event) {
+  function handleSubmit(event: ChangeEvent<HTMLInputElement>) {
     event.preventDefault();
     setSubmit(true);
     onSubmit(username, email);
@@ -20,11 +20,11 @@ export const LoginForm = ({ onSubmit }) => {
     setIsDisabled(true);
   }
 
-  function handleChangeUsername(event) {
+  function handleChangeUsername(event: ChangeEvent<HTMLInputElement>) {
     setUsername(event.target.value.toLowerCase());
   }
 
-  function handleChangeemail(event) {
+  function handleChangeemail(event:  ChangeEvent<HTMLInputElement>) {
     setemail(event.target.value.toLowerCase());
   }
 
@@ -40,7 +40,7 @@ export const LoginForm = ({ onSubmit }) => {
     if (submit === true) {
       const json = JSON.stringify({
         name: username,
-        email: email
+        email: email,
       });
       const res = axios
         .post("https://frontend-take-home-service.fetch.com/auth/login", json, {
@@ -54,11 +54,7 @@ export const LoginForm = ({ onSubmit }) => {
           console.log(response);
           var authCookie = response.headers;
           console.log(authCookie);
-          var cookies = setCookie.parse(response, {
-            decodeValues: true, // default: true
-          });
-
-          cookies.forEach(console.log);
+      
         })
         .catch(function (error) {
           console.log(error);
@@ -69,7 +65,7 @@ export const LoginForm = ({ onSubmit }) => {
   }, [submit]);
 
   return (
-    <form style={{ display: "table-caption" }} onSubmit={handleSubmit}>
+    <form style={{ display: "table-caption" }} onSubmit={handleSubmit as any}>
       <div>
         <label htmlFor="username-input">Name</label>
         <input
@@ -85,8 +81,7 @@ export const LoginForm = ({ onSubmit }) => {
         }}
       >
         <label htmlFor="email-input">Email</label>
-
-        <input   pattern=".+@globex\.com" type="email"   required id="email-input" onChange={handleChangeemail} value={email} />
+        <input id="email-input" onChange={handleChangeemail} value={email} />
       </div>
 
       <button
@@ -96,10 +91,8 @@ export const LoginForm = ({ onSubmit }) => {
         onClick={() => {
           setTimeout(() => {
           
-     if(/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/.test(email))
-        
             navigate( "/search");
-          }, 1500);
+          }, 3500);
         }}
         id="login-button"
         type="submit"

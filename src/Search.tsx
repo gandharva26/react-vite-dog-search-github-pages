@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 type Dog =
   | {
-      id: string;
+      id?: string;
       img: string;
       name: string;
       age: number;
@@ -29,6 +29,8 @@ type Location =
       county: string;
     }
   | null;
+
+ 
 
 const columns: {accessor:string, label:string}[] = [
   "name",
@@ -134,7 +136,7 @@ export const Search = () => {
   
 
 
-  const [rows, setRows] = useState([]);
+  const [rows, setRows]  =  useState<(Dog & Location)[]>([]);
 
   const [locations, setLocations] = useState([]);
   const [zipCodes, setZipCodes] = useState([]);
@@ -203,7 +205,7 @@ export const Search = () => {
       })
       .then(function (response) {
         console.log(response.data);
-        const tempData = response.data.map((elem) => {
+        const tempData = response.data.map((elem:any) => {
           return { value: elem, label: elem };
         });
 
@@ -217,7 +219,7 @@ export const Search = () => {
 
   useEffect(() => {
     if (logout) {
-      const resp = axios
+    axios
         .post("https://frontend-take-home-service.fetch.com/auth/logout", {
           withCredentials: true,
         })
