@@ -2,7 +2,7 @@
 
 ## To run on website : https://gandharva26.github.io/react-vite-gh-pages/
 ### enter email or username (Currently without validation : abc, def@gmail.com)
-### Navigate to search page, if the breeds dropdown isn't populated, Refresh page.
+### Navigate to search page, if the breeds dropdown isn't populated - its probably because your browser isn't accepting cookies
 ### Fill in the columns to Search your Dogs
 
 
