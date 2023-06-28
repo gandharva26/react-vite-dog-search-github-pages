@@ -91,7 +91,7 @@ export const Table = ({ columns, rows, selectedElementsArray }) => {
                     key={`${column.accessor}-search`}
                     type="search"
                     style={{ maxWidth: "15vh" }}
-                    placeholder={`Search Here`}
+                    placeholder={`Search`}
                     value={filters[column.accessor]}
                     onChange={(event) =>
                       handleSearch(event.target.value, column.accessor)
