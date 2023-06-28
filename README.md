@@ -1,7 +1,7 @@
 # react-vite-gh-pages - Dog Search
 
 ## To run on website : https://gandharva26.github.io/react-vite-gh-pages/
-### enter email or username (email is validated : use abc@gmail.com)
+### enter email or username (Currently using invalidated : abc, def@gmail.com)
 ### Navigate to search page
 ### Fill in the columns to Search your Dogs
 
