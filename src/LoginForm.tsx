@@ -40,8 +40,8 @@ export const LoginForm = ({ onSubmit }:any) => {
   useEffect(() => {
     if (submit === true) {
       const json = JSON.stringify({
-        name: "abc",
-        email: "def@gmail.com",
+        name: username,
+        email: email,
       });
 
       axiosRetry(axios, {
