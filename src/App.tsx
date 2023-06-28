@@ -13,8 +13,9 @@ function App() {
   );
 
   return (
-    <BrowserRouter
-      basename={'/react-vite-gh-pages/'}
+    <HashRouter
+   
+      
     >
 
 <Routes>
@@ -24,7 +25,8 @@ function App() {
 
 
     
-    </BrowserRouter>
+
+    </HashRouter>
   )
 }
 
